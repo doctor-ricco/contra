@@ -1,4 +1,4 @@
-o Algumas Noções Importantes em Djano (e não só...)
+o Algumas Noções Importantes em Django (e não só...)
 
     - app:
 
@@ -29,4 +29,50 @@ o Algumas Noções Importantes em Djano (e não só...)
             também queremos campos extra, herdamos de AbstractBaseUser
 
     - Custom User Manager
-        ..          
+
+        .. 
+
+    - Form:
+
+        ..  Classe que descreve um formulário para introdução de dados, e como
+            é que ele deve ser apresentado
+
+        ..  Os campos de um Form são mapeados para <input> (do mesmo modo que
+            campos de um Model são mapeados para campos da BD)
+
+        .. Ver:
+
+            ~   https://docs.djangoproject.com/en/5.1/topics/forms/
+            ~   https://docs.djangoproject.com/en/5.1/topics/forms/modelforms/ 
+            ~   from django.contrib.auth.forms import UserCreationForm
+            ~   from django.contrib.auth.forms import AuthenticationForm
+
+    - ModelForm
+
+        ..  Ao construírmos uma app com suporte em BD, é provável que 
+            necessitemos de forms que seguem (ie, mapeiam os seus campos)
+            os modelos. Neste caso, vamos ter campos no form cuja definição 
+            é idêntica à dos modelos. Seria redundante defini-los duas vezes 
+            (no Form e no Model)
+
+        ..  Ou seja, um ModelForm mapeia campos dos Model's em elementos <input>
+
+        ..  Um ModelForm é um Form que automaticamente consegue gerar certos
+            campos a partir de um Model. Os campos que são gerados dependem do
+            conteúdo da classe Meta e dos campos que já foram declarados no 
+            próprio ModelForm.
+
+        ..  Basicamente, ModelForm apenas gera os campos que não estão presentes
+            no form, ou que, por outras palavras, não foram definidos
+            declarativamente (?)
+
+    - UserCreationForm
+
+        ..  Form que é utilizador parar criar novos utilizadores. Tira partido
+            do modelo User ou de modelos derivados deste (como será o nosso
+            CustomerUser)
+
+    - class Meta
+
+        ..  Classe "embebida" (ou embutida) usada para configurar o ModelForm 
+            em termos de um determinado Model.
