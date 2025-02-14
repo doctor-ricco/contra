@@ -1,0 +1,32 @@
+o Algumas Noções Importantes em Djano (e não só...)
+
+    - app:
+
+        ..  O Django é conhecido pela sua estrutura de aplicações única e 
+            totalmente geridas. 
+
+        ..  Para cada funcionalidade, uma aplicação pode ser criada como um 
+            módulo completamente independente.
+
+        ..  As apps podem ser reutilizadas noutros projectos
+
+        ..  Já vem com apps pré-definidas
+
+    - Modelos
+
+        ..  Um modelo (ie, um entidade do modelo de dados => poderá dar origem
+            a uma tabela na BD) cria-se a partir de uma classe em Python
+
+        ..  Esta classe herda de uma classe Model do Django
+
+    - Custom User Model
+
+        ..  Vamos usar modelo específico para definir um User
+
+        ..  Devemos herdar de AbstractUser ou de AbstractBaseUser
+
+        ..  Como queremos substituir o campo de login - username->email - e 
+            também queremos campos extra, herdamos de AbstractBaseUser
+
+    - Custom User Manager
+        ..          
