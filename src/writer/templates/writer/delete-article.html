@@ -1,0 +1,21 @@
+{% extends 'writer/_main.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container bg-white shadow p-5 mt-5 form-layout">
+    <h3 class="text-center">{% translate 'Delete Article' %}</h3>
+    <p class="text-center mb-5">{% translate 'Are you sure you want to delete the following article?' %}</p>
+    <form method="POST" autocomplete="OFF">
+        {% csrf_token %}
+
+        <h5>{{ article.title }}</h5>
+
+        <div class="d-flex justify-content-center gap-3 mt-2" style="align-items: baseline;">
+            <button class="btn btn-danger rounded-pill px-4" type="submit">{% translate 'Delete' %}</button>
+            <button class="btn btn-success rounded-pill px-4" type="button" onclick="window.location.href='{% url 'my-articles' %}'">
+                {% translate 'Return' %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

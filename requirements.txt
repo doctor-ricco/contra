@@ -1,0 +1,5 @@
+crispy-bootstrap5
+django
+uvicorn[standard]
+ptpython
+docopt
