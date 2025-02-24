@@ -3,16 +3,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="container bg-white shadow p-5 mt-5 form-layout">
-        <h3 class="text-center">{% translate 'Update Account Details' %}</h3>
-        <p class="text-center mb-5">{% translate 'You may update the following details below:' %}</p>
-        <form method="POST" autocomplete="OFF">
-            {% csrf_token %}
+<div class="container bg-white shadow p-5 mt-5 form-layout">
+    <h3 class="text-center">{% translate 'Update Account Details' %}</h3>
+    <p class="text-center mb-5">{% translate 'You may update the following details below:' %}</p>
+    <form method="POST" autocomplete="OFF">
+        {% csrf_token %}
 
-            {{ update_user_form | crispy }}
+        {{ update_user_form | crispy }}
+
+        <div class="d-flex justify-content-between align-items-center no-wrap">
 
             <input class="btn btn-primary" type="submit" value="{% translate 'Update' %}">
-            <a href="{% url 'my-articles' %}" class="btn btn-home w-100">{% translate 'Cancel' %}</a>
-        </form>
-    </div>
+
+            <a href="{% url 'delete-account' %}" class="btn btn-home mx-2">
+                {% translate 'Delete account' %}
+            </a>
+            <a href="{% url 'my-articles' %}" class="btn btn-home ms-2">
+                {% translate 'Cancel' %}
+            </a>
+        </div>
+    </form>
+</div>
 {% endblock %}
+<!-- PAREI NO VÍDEO E-06 25'40"-->

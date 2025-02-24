@@ -1,0 +1,22 @@
+{% extends 'writer/_main.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container bg-white shadow p-5 mt-5 form-layout">
+    <h3 class="text-center">{% translate 'Delete Account' %}</h3>
+    <p class="text-center mb-5">{% translate 'Are you sure you want to delete your account?' %}</p>
+    <form method="POST" autocomplete="OFF">
+        {% csrf_token %}
+
+        <h5>{{ user.email }}</h5>
+        <h5> {{ user.first_name }} </h5>
+
+        <div class="d-flex justify-content-center gap-3 mt-2" style="align-items: baseline;">
+            <button class="btn btn-danger rounded-pill px-4" type="submit">{% translate 'Delete' %}</button>
+            <a href="{% url 'update-user' %}" class="btn btn-success rounded-pill px-4">
+                {% translate 'Return' %}
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
